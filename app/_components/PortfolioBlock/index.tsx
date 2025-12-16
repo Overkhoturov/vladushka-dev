@@ -1,33 +1,58 @@
+'use client';
 import { BasicContainer } from "@/components/layout/Container";
 import PortfolioCard from "./PortfolioCard";
+import styled from "styled-components";
 
 const cards = [
   {
     title: 'Pixual',
     mainTags: ['web app', 'admin panel'],
-    additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history']
+    additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history'],
+    img: '/portfolio/pixual.png',
   },
   {
-    title: 'Pixuals',
+    title: 'eXpenso',
+    mainTags: ['Mobile app'],
+    additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history'],
+    img: '/portfolio/expenso.png',
+  },
+  {
+    title: 'Breezify',
     mainTags: ['web app', 'admin panel'],
-    additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history']
+    additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history'],
+    img: '/portfolio/breezify.png',
+  },
+  {
+    title: 'Lettuce',
+    mainTags: ['dashboard'],
+    additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history'],
+    img: '/portfolio/lettuce.png',
+  },
+  {
+    title: 'GTS-3100',
+    mainTags: ['Mobile app'],
+    additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history'],
+    img: '/portfolio/gts.png',
   },
 ]
 
 const PortfolioBlock = () => {
   return (
-    <BasicContainer className="grid md:grid-cols-2 gap-8 px-12 md:px-[120px] py-[88px]">
+    <StyledContainer className="grid grid-cols-1 lg:grid-cols-2 py-[88px] px-4 md:px-12 lg:px-16 xl:px-20 2xl:px-[120px]">
       {cards.map(card => (
-        <PortfolioCard key={card.title} title={card.title} mainTags={card.mainTags} additionalTags={card.additionalTags} />
+        <PortfolioCard
+          key={card.title}
+          {...card}
+        />
       ))}
-      {/* <div>
-        Card 1
-      </div> */}
-      {/* <div>
-        Card 2
-      </div> */}
-    </BasicContainer>
+    </StyledContainer>
   )
 }
 
 export default PortfolioBlock;
+
+const StyledContainer = styled(BasicContainer)`
+  // display: grid;
+  // grid-template-columns: auto 1fr;
+  gap: 32px;
+`
